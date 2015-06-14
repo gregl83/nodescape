@@ -33,6 +33,10 @@
     "istanbul": "0.3.x",
     "quick-bench": "0.1.x"
   },
-  "dependencies": {},
+  "dependencies": {
+    "config": "1.12.x",
+    "request": "2.x",
+    "jsdom": "3.x"
+  },
   "license": "MIT"
 }
