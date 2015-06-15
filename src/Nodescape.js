@@ -13,11 +13,42 @@ function Nodescape() {
 
   // todo consider developer tools vs standalone jquery
 
-  self.history = [];
-
   self.location = config.get('location');
+
+  self._tabs = {};
+  self._activeTab = null; // todo consider new tab on construct...
 
   // todo
 }
+
+
+/**
+ * Get new nodescape tab
+ *
+ * @returns {Tab} tab
+ */
+Nodescape.prototype.newTab = function() {
+  // todo create and return new tab
+};
+
+
+/**
+ * Get existing tab
+ *
+ * @param{string} id
+ * @returns {Tab} tab
+ */
+Nodescape.prototype.getTab = function(id) {
+  // todo get tab from _tabs
+};
+
+
+/**
+ * Close nodescape
+ */
+Nodescape.prototype.close = function() {
+  // todo close all tabs
+};
+
 
 module.exports = Nodescape;
