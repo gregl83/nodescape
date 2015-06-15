@@ -34,12 +34,16 @@ describe('nodescape', function() {
   });
 
   it('new instance sans context', function(done) {
-    var jar = sandbox.stub(request, 'jar');
+    var jar = {type: 'request-jar'};
+    var requestJar = sandbox.stub(request, 'jar');
+    requestJar.returns();
+
     var configGet = sandbox.stub(config, 'get');
 
     var nodescape = new Nodescape();
 
-    sinon.assert.calledOnce(jar);
+    sinon.assert.calledOnce(requestJar);
+    should(nodescape._jar).be.eql(jar);
 
     sinon.assert.calledOnce(configGet);
     sinon.assert.calledWithExactly(configGet, 'location');
@@ -51,15 +55,16 @@ describe('nodescape', function() {
 
   it('new instance with context', function(done) {
     var context = {
-      jar: {}
+      jar: {type: 'context-jar'}
     };
 
-    var jar = sandbox.stub(request, 'jar');
+    var requestJar = sandbox.stub(request, 'jar');
     var configGet = sandbox.stub(config, 'get');
 
     var nodescape = new Nodescape(context);
 
-    sinon.assert.notCalled(jar);
+    sinon.assert.notCalled(requestJar);
+    should(nodescape._jar).be.eql(context.jar);
 
     sinon.assert.calledOnce(configGet);
     sinon.assert.calledWithExactly(configGet, 'location');
@@ -69,7 +74,7 @@ describe('nodescape', function() {
     done();
   });
 
-  it('create tab', function(done) {
+  it('new tab', function(done) {
     // todo
     done();
   });
