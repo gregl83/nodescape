@@ -1,3 +1,6 @@
+var util = require('util');
+var EventEmitter = require('events').EventEmitter;
+
 var request = require('request');
 var jsdom = require('jsdom');
 
@@ -18,23 +21,23 @@ function Tab(start) {
 }
 
 
+util.inherits(Tab, EventEmitter);
+
+
 /**
  * Go to URL
  *
  * @param {string} url
- * @param {function} cb
  */
-Tab.prototype.go = function(url, cb) {
+Tab.prototype.go = function(url) {
   // todo use request and jsdom to get url contents
 };
 
 
 /**
  * Refresh tab
- *
- * @param {function} cb
  */
-Tab.prototype.refresh = function(cb) {
+Tab.prototype.refresh = function() {
   // todo consider caching of content and a hard refresh
   // todo refresh tab
 };
@@ -44,9 +47,8 @@ Tab.prototype.refresh = function(cb) {
  * Go back n number of history records
  *
  * @param {integer} [n]
- * @param {function} cb
  */
-Tab.prototype.back = function(n, cb) {
+Tab.prototype.back = function(n) {
   // todo go back
 };
 
@@ -55,20 +57,18 @@ Tab.prototype.back = function(n, cb) {
  * Go forward n number of history records
  *
  * @param {integer} [n]
- * @param {function} cb
  */
-Tab.prototype.forward = function(n, cb) {
+Tab.prototype.forward = function(n) {
   // todo go forward
 };
 
 
 /**
  * Close tab
- *
- * @param {function} [cb]
  */
-Tab.prototype.close = function(cb) {
+Tab.prototype.close = function() {
   // todo close tab
+  // todo emit closed
 };
 
 
