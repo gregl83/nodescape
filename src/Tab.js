@@ -6,13 +6,13 @@ var jsdom = require('jsdom');
 /**
  * Nodescape Tab
  *
- * @param {string} start location
+ * @param {object} options
  * @constructor
  */
-function Tab(start) {
+function Tab(options) {
   var self = this;
 
-  self.location = self.address = start;
+  self.location = options.start;
 
   self.history = [];
 
