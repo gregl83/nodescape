@@ -2,6 +2,7 @@ var sinon = require('sinon');
 
 var Nodescape = require('../');
 
+
 var sandbox;
 
 describe('nodescape', function() {
@@ -13,7 +14,13 @@ describe('nodescape', function() {
     sandbox.restore();
   });
 
-  it('new nodescape instance', function(done) {
+  it('new instance sans context', function(done) {
+    // todo new jar if context empty
+    // todo
+    done();
+  });
+
+  it('new instance with context', function(done) {
     // todo
     done();
   });

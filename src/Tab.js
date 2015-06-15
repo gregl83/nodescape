@@ -1,7 +1,6 @@
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
 
-var request = require('request');
 var jsdom = require('jsdom');
 
 /**
@@ -17,7 +16,7 @@ function Tab(start) {
 
   self.history = [];
 
-  self.dom = null; // fixme
+  self.window = null; // fixme
 }
 
 

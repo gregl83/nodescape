@@ -1,19 +1,23 @@
 var config = require('config');
+var request = require('request');
 
-// todo define browser interface (use familiar terminology/interface such as chrome or firefox)
 
-// todo write headless browser with tab support (based off jsdom)
-
-// todo publish beta
-
-function Nodescape() {
+/**
+ * Nodescape is a NodeJS headless browser
+ *
+ * @param {object} context
+ * @constructor
+ */
+function Nodescape(context) {
   var self = this;
 
   // todo consider page cache
 
   // todo consider developer tools vs standalone jquery
 
-  self.location = config.get('location');
+  self._jar = (context.jar) ? context.jar : request.jar();
+
+  self._location = config.get('location');
 
   self._tabs = {};
   self._activeTab = null; // todo consider new tab on construct...
@@ -28,6 +32,8 @@ function Nodescape() {
  * @returns {Tab} tab
  */
 Nodescape.prototype.newTab = function() {
+  // todo run tab in child process with limited global access (sans fs, etc)
+
   // todo create and return new tab
 };
 
