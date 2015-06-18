@@ -11,6 +11,8 @@ var request = require('request');
 function Nodescape(context) {
   var self = this;
 
+  if ('undefined' === typeof context) context = {};
+
   // todo consider page cache
 
   // todo consider developer tools vs standalone jquery

@@ -36,7 +36,7 @@ describe('nodescape', function() {
   it('new instance sans context', function(done) {
     var jar = {type: 'request-jar'};
     var requestJar = sandbox.stub(request, 'jar');
-    requestJar.returns();
+    requestJar.returns(jar);
 
     var configGet = sandbox.stub(config, 'get');
 
