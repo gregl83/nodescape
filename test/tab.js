@@ -1,5 +1,6 @@
 var sinon = require('sinon');
 var should = require('should');
+var validator = require('validator');
 
 var Tab = require('../src/Tab');
 
@@ -23,6 +24,9 @@ describe('tab', function() {
     var tab = new Tab(options);
 
     should(tab).be.instanceOf(Tab);
+
+    should(validator.isUUID(tab.id)).be.true;
+    should(tab.title).be.String;
 
     should(tab.history).be.Array;
     should(tab.history.length).eql(0);

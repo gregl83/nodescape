@@ -1,7 +1,9 @@
 var util = require('util');
 var EventEmitter = require('events').EventEmitter;
 
+var uuid = require('node-uuid');
 var jsdom = require('jsdom');
+
 
 /**
  * Nodescape Tab
@@ -13,6 +15,9 @@ function Tab(options) {
   var self = this;
 
   if ('undefined' === typeof options) throw new Error('options are required');
+
+  self.id = uuid.v1();
+  self.title = '';
 
   self.location = options.start;
 
