@@ -1,4 +1,5 @@
 var sinon = require('sinon');
+var should = require('should');
 
 var Tab = require('../src/Tab');
 
@@ -14,7 +15,29 @@ describe('tab', function() {
   });
 
   it('new tab instance', function(done) {
-    // todo
+    var go = sandbox.stub(Tab.prototype, 'go');
+
+    var options = {
+      start: 'about:blank'
+    };
+    var tab = new Tab(options);
+
+    should(tab).be.instanceOf(Tab);
+
+    should(tab.history).be.Array;
+    should(tab.history.length).eql(0);
+
+    sinon.assert.calledOnce(go);
+    sinon.assert.calledWithExactly(go, options.start);
+
+    done();
+  });
+
+  it('new tab instance sans options', function(done) {
+    should.throws(function() {
+      var tab = new Tab();
+    });
+
     done();
   });
 

@@ -12,11 +12,15 @@ var jsdom = require('jsdom');
 function Tab(options) {
   var self = this;
 
+  if ('undefined' === typeof options) throw new Error('options are required');
+
   self.location = options.start;
 
   self.history = [];
 
-  self.window = null; // fixme
+  self.window = undefined;
+
+  self.go(self.location);
 }
 
 
