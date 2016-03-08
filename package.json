@@ -8,7 +8,9 @@
     "nodescape",
     "headless",
     "browser",
-    "nodejs"
+    "nodejs",
+    "request",
+    "jsdom"
   ],
   "main": "src/Nodescape",
   "repository": {
@@ -25,20 +27,20 @@
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --require test/support/env --reporter dot --check-leaks test/"
   },
   "devDependencies": {
-    "mocha": "2.2.x",
-    "should": "5.2.x",
-    "mockery": "1.4.X",
-    "sinon": "1.14.x",
-    "coveralls": "2.11.x",
-    "istanbul": "0.3.x",
-    "validator": "3.x",
-    "quick-bench": "0.1.x"
+    "mocha": "~2.4.5",
+    "should": "~8.2.2",
+    "mockery": "~1.4.1",
+    "sinon": "~1.17.3",
+    "coveralls": "~2.11.8",
+    "istanbul": "~0.4.2",
+    "validator": "~5.1.0",
+    "quick-bench": "~0.1.1"
   },
   "dependencies": {
-    "config": "1.12.x",
-    "request": "2.x",
-    "jsdom": "3.x",
-    "node-uuid": "1.4.x"
+    "config": "~1.19.0",
+    "request": "~2.69.0",
+    "jsdom": "~8.1.0",
+    "node-uuid": "~1.4.7"
   },
   "license": "MIT"
 }
